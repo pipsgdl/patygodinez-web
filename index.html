@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Paty Godínez, psicoterapeuta y coach. Retorna a tu poder. Acompañamiento, talleres y capacitación desde PNL, neurociencias y coaching.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<title>Paty Godínez — Retorna a tu poder</title>
+<style>
+  @font-face{font-family:"Bruney Season";src:url("fuentes/bruney-season.woff2") format("woff2");font-display:swap}
+  @font-face{font-family:"New Icon Script";src:url("fuentes/New-Icon-Script.woff2") format("woff2");font-display:swap}
+
+  :root{
+    --crema:#f0eade; --crema-2:#e9e1d1; --papel:#f6f2ea;
+    --bosque:#464b37; --bosque-hondo:#2f3325;
+    --terracota:#8a4a2c; --barro:#a86a48; --salmon:#b88665;
+    --oliva:#8d874f; --lavanda:#c9a7c8; --salvia:#7e836f;
+    --tinta:#3a3d2e; --tenue:#6d7059; --linea:rgba(58,61,46,.16);
+    --display:"Bruney Season","Iowan Old Style",Didot,"Bodoni 72",Georgia,serif;
+    --firma:"New Icon Script","Snell Roundhand","Apple Chancery",cursive;
+    --cuerpo:"DIN Alternate","Avenir Next","Segoe UI",-apple-system,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--terracota);outline-offset:3px;border-radius:3px}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em}
+  h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02}
+  h2{font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.14}
+  h3{font-size:1.15rem;letter-spacing:.02em}
+  p{margin:0}
+  .env{max-width:1180px;margin-inline:auto;padding-inline:clamp(1.2rem,4vw,2.6rem)}
+  .rotulo{font-family:var(--cuerpo);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terracota);font-weight:600;display:inline-flex;align-items:center;gap:.7rem}
+  .rotulo::before,.rotulo.doble::after{content:"";width:26px;height:1px;background:currentColor;opacity:.5}
+  .script{font-family:var(--firma);color:var(--oliva)}
+
+  /* sprig botánico reutilizable */
+  .sprig{width:34px;height:auto;color:var(--salvia);opacity:.8}
+
+  /* nav — barra oscura para que el logo taupe resalte */
+  header.nav{position:sticky;top:0;z-index:40;background:rgba(47,51,37,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav .env{display:flex;align-items:center;gap:1.5rem;height:80px}
+  .brand{display:flex;align-items:center;gap:.7rem;margin-right:auto}
+  .brand-logo{height:54px;width:210px;background:url("logo-paty.png") no-repeat left center;background-size:contain}
+  .menu{display:flex;gap:1.6rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  .menu a{color:#d7d3c4;transition:color .2s}
+  .menu a:hover{color:var(--lavanda)}
+  .nav .btn{background:var(--lavanda);color:var(--bosque-hondo);border-color:var(--lavanda)}
+  .nav .btn:hover{background:#dcc0db;border-color:#dcc0db;color:var(--bosque-hondo)}
+  .btn{display:inline-block;font-family:var(--cuerpo);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:.7rem 1.3rem;border-radius:2px;background:var(--terracota);color:var(--crema);border:1px solid var(--terracota);transition:transform .2s,background .2s;cursor:pointer}
+  .btn:hover{transform:translateY(-1px);background:var(--bosque-hondo);border-color:var(--bosque-hondo)}
+  .btn.ghost{background:transparent;color:var(--tinta);border-color:var(--linea)}
+  .btn.ghost:hover{background:transparent;border-color:var(--terracota);color:var(--terracota)}
+  @media(max-width:860px){.menu{display:none}}
+
+  /* hero */
+  .hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:88svh}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;min-height:auto}}
+  .hero-txt{display:flex;flex-direction:column;justify-content:center;gap:1.6rem;padding:clamp(2.5rem,6vw,5rem) clamp(1.4rem,5vw,4.5rem)}
+  .hero h1 em{font-style:normal;color:var(--barro)}
+  .hero .sub{font-size:1.05rem;color:var(--tenue);max-width:30rem}
+  .hero-foto{position:relative;background:var(--salvia) url("assets/hero.jpg") no-repeat center 22%;background-size:cover;overflow:hidden}
+  .hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(47,51,37,.32),transparent 55%)}
+  .hero-nota{position:absolute;right:clamp(1rem,3vw,2.5rem);top:clamp(2rem,10vh,7rem);text-align:right;color:#fff;z-index:2;text-shadow:0 1px 12px rgba(47,51,37,.55)}
+  .hero-nota .script{color:#fff;font-size:1.7rem;line-height:1.1}
+  @media(max-width:860px){.hero-foto{min-height:60svh}}
+
+  section{padding-block:clamp(4rem,9vw,7.5rem)}
+  .filo{border-top:1px solid var(--linea)}
+
+  /* bienvenida */
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  @media(max-width:820px){.dos{grid-template-columns:1fr}}
+  .marco{aspect-ratio:4/5;position:relative;border-radius:2px;overflow:hidden;background:var(--crema-2) url("assets/about.jpg") no-repeat center 18%;background-size:cover}
+  .marco::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(58,61,46,.08)}
+  .prosa{display:flex;flex-direction:column;gap:1.4rem}
+  .prosa p{color:var(--tenue)}
+  .prosa .lead{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.3;color:var(--tinta)}
+  .manifiesto{font-family:var(--firma);font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.4;color:var(--oliva)}
+  .pend{align-self:flex-start;font-family:var(--cuerpo);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terracota);border:1px dashed currentColor;border-radius:99px;padding:.2rem .7rem}
+
+  /* caminos */
+  .centro{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;margin-bottom:3.5rem}
+  .caminos{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.2rem,3vw,2.4rem)}
+  @media(max-width:820px){.caminos{grid-template-columns:1fr;max-width:26rem;margin-inline:auto}}
+  .camino{display:flex;flex-direction:column;gap:1rem;text-align:center;align-items:center}
+  .camino .foto{aspect-ratio:5/4;width:100%;border-radius:2px;overflow:hidden;position:relative;display:grid;place-items:center}
+  .camino .foto svg{width:44px;height:auto;color:#fff;opacity:.92}
+  .camino:nth-child(1) .foto{background:linear-gradient(150deg,var(--salvia),var(--oliva))}
+  .camino:nth-child(2) .foto{background:linear-gradient(150deg,var(--barro),var(--terracota))}
+  .camino:nth-child(3) .foto{background:linear-gradient(150deg,var(--lavanda),var(--salvia))}
+  .camino h3{color:var(--terracota)}
+  .camino p{color:var(--tenue);font-size:.92rem}
+  .camino .mas{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bosque);border-bottom:1px solid var(--terracota);padding-bottom:2px}
+
+  /* talleres */
+  .talleres{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea);border-radius:3px;overflow:hidden;margin-top:2.5rem}
+  @media(max-width:760px){.talleres{grid-template-columns:1fr}}
+  .taller{background:var(--crema);padding:1.8rem 1.5rem;display:flex;flex-direction:column;gap:.5rem;min-height:150px}
+  .taller h3{font-size:1.05rem}
+  .taller p{color:var(--tenue);font-size:.88rem}
+
+  /* empresas */
+  .empresas{background:var(--bosque);color:#e9e5d7}
+  .empresas .dos{align-items:center}
+  .empresas h2,.empresas .lead{color:#f3efe3}
+  .empresas p{color:#c3c1ac}
+  .empresas .rotulo{color:var(--lavanda)}
+  .ficha{display:grid;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:.4rem 1.4rem}
+  .ficha div{display:flex;justify-content:space-between;gap:1rem;padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.92rem}
+  .ficha div:last-child{border-bottom:0}
+  .ficha dt{color:#b7b5a0}.ficha dd{margin:0;font-variant-numeric:tabular-nums}
+  .empresas .btn{background:var(--lavanda);color:var(--bosque-hondo);border-color:var(--lavanda)}
+  .empresas .btn:hover{background:#dcc0db;border-color:#dcc0db}
+
+  /* pilares */
+  .pilares{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem 3rem;padding-block:2.6rem;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+  .pilar{display:flex;flex-direction:column;align-items:center;gap:.6rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tenue)}
+
+  /* contacto */
+  .cta{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  .cta p{color:var(--tenue);max-width:32rem}
+  .cta .acc{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem}
+
+  footer{background:var(--bosque-hondo);color:#cfccbb;padding-block:3rem}
+  footer .env{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between}
+  .mono{font-family:var(--display);font-size:1.3rem;letter-spacing:.1em;color:#e9e5d7}
+  footer a{color:#cfccbb}footer a:hover{color:#fff}
+  .redes{display:flex;gap:1.2rem;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+
+  .sep{display:flex;align-items:center;justify-content:center;gap:.5rem;color:var(--oliva);margin:0 auto}
+  .sep i{width:5px;height:5px;background:currentColor;border-radius:50%;display:inline-block;opacity:.7}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- sprite botánico -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="sprig"><path d="M20 46 V6 M20 14 C13 12 9 8 9 3 M20 14 C27 12 31 8 31 3 M20 24 C13 22 9 18 9 13 M20 24 C27 22 31 18 31 13 M20 34 C14 32 10 28 10 23 M20 34 C26 32 30 28 30 23" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></g>
+<g id="moon"><path d="M30 6 A16 16 0 1 0 30 38 A12 12 0 1 1 30 6Z" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M14 8 l1.2 3 3 1.2 -3 1.2 -1.2 3 -1.2-3 -3-1.2 3-1.2Z" fill="currentColor"/></g>
+</defs></svg>
+
+<header class="nav">
+  <div class="env">
+    <a class="brand" href="#inicio" aria-label="Paty Godínez — inicio"><span class="brand-logo" role="img" aria-label="Paty Godínez"></span></a>
+    <nav class="menu">
+      <a href="#sobre">Sobre mí</a>
+      <a href="#caminos">Acompañamiento</a>
+      <a href="#talleres">Talleres</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn" href="#contacto">Escríbeme</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-txt">
+    <span class="rotulo">La Voz del Alma</span>
+    <h1>Retorna<br>a <em>tu poder.</em></h1>
+    <p class="sub">Acompaño a mujeres que cargan con todo y en algún punto dejaron de escucharse. No para que aguantes más — para que vuelvas a ti.</p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+      <a class="btn" href="#caminos">Conoce cómo trabajo</a>
+      <a class="btn ghost" href="#contacto">Quiero platicar contigo</a>
+    </div>
+  </div>
+  <div class="hero-foto" role="img" aria-label="Paty Godínez">
+    <div class="hero-nota"><span class="script">no eres alguien nuevo,<br>estás volviendo a ti</span></div>
+  </div>
+</section>
+
+<section class="filo" id="sobre">
+  <div class="env dos">
+    <div class="marco" role="img" aria-label="Paty Godínez"></div>
+    <div class="prosa">
+      <span class="rotulo doble">Quién te acompaña</span>
+      <p class="lead">No te hablo desde la teoría. Te hablo desde el camino.</p>
+      <p class="manifiesto">«Me siento orgullosa de mí, porque he seguido mi voz interior, porque he entrenado mi mente para sanarme…»</p>
+      <p>Soy <strong>psicoterapeuta y coach</strong>. Trabajo desde la programación neurolingüística, las neurociencias y el coaching — no como técnicas sueltas, sino como un camino para que dejes de pelearte contigo.</p>
+      <p>He acompañado a mujeres en procesos individuales y en grupo, y a equipos de trabajo dentro de las empresas.</p>
+      <span class="pend">Credenciales y años de experiencia · por confirmar con Paty</span>
+    </div>
+  </div>
+</section>
+
+<section class="filo" id="caminos">
+  <div class="env">
+    <div class="centro">
+      <svg class="sprig" viewBox="0 0 40 48"><use href="#sprig"/></svg>
+      <span class="rotulo doble">Varios caminos</span>
+      <h2>Un mismo regreso a ti.</h2>
+    </div>
+    <div class="caminos">
+      <div class="camino">
+        <div class="foto"><svg viewBox="0 0 40 48"><use href="#sprig"/></svg></div>
+        <h3>Acompañamiento individual</h3>
+        <p>Sesiones uno a uno, a tu ritmo, para desenredar lo que ya no quieres seguir cargando.</p>
+        <a class="mas" href="#contacto">Escríbeme</a>
+      </div>
+      <div class="camino">
+        <div class="foto"><div class="foto-slot"><span>FOTO · cuerpo / belleza genuina<br>(WhatsApp: "La Magia para crear la vida")</span></div></div>
+        <h3>La Voz del Alma</h3>
+        <p>Programa sobre tu relación con el cuerpo y con la comida: hambre real y hambre emocional, la práctica del espejo, las lealtades que heredaste.</p>
+        <a class="mas" href="#contacto">Conocer más</a>
+      </div>
+      <div class="camino">
+        <div class="foto"><div class="foto-slot"><span>FOTO · grupo de mujeres<br>(parrilla: "Juntas es mejor")</span></div></div>
+        <h3>Con Tribu.ir · El Re-Creo</h3>
+        <p>Procesos en grupo, para caminar acompañada. Las raíces del florecimiento humano y la fuerza de sostenerse entre mujeres.</p>
+        <a class="mas" href="#contacto">Conocer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filo" id="talleres">
+  <div class="env">
+    <div class="centro">
+      <div class="sep"><i></i><i></i><i></i></div>
+      <span class="rotulo doble">Talleres y conferencias</span>
+      <h2>Los que ya imparte.</h2>
+    </div>
+    <div class="talleres">
+      <div class="taller"><h3>Taller de Mindfulness</h3><p>Los pasos básicos de la disciplina para volver a la calma.</p></div>
+      <div class="taller"><h3>Alivia el dolor de vivir</h3><p>Estrategias para sostener lo que duele sin quedarte ahí.</p></div>
+      <div class="taller"><h3>Manejo emocional post pandemia</h3><p>Los fundamentos del trauma y cómo se transita.</p></div>
+      <div class="taller"><h3>El poder del Autoconocimiento</h3><p>Explora tu mundo interior y lo que hay debajo.</p></div>
+      <div class="taller"><h3>La Magia para crear la vida que deseas</h3><p>Encuentra tu misión y traza el rumbo.</p></div>
+      <div class="taller"><h3>Conferencia «Retorno a tu poder»</h3><p>Una perspectiva que te devuelve el mando.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="empresas" id="empresas">
+  <div class="env dos">
+    <div class="prosa">
+      <span class="rotulo doble">Para empresas</span>
+      <h2>Comunicación asertiva para equipos de trabajo.</h2>
+      <p>Modelos de comunicación y gestión de las emociones propias y ajenas. Autodiálogo, confianza, negociaciones alineadas con los objetivos de la organización, y lenguaje corporal congruente.</p>
+      <p>La metodología usa conceptos y prácticas de programación neurolingüística, neurociencias y coaching, para que cada participante potencialice su talento y se exprese con asertividad.</p>
+      <a class="btn" href="#contacto" style="align-self:flex-start;margin-top:.6rem">Solicitar propuesta</a>
+    </div>
+    <div>
+      <dl class="ficha">
+        <div><dt>Sesión principal</dt><dd>3 horas</dd></div>
+        <div><dt>Seguimiento</dt><dd>2 horas · 10 días después</dd></div>
+        <div><dt>Grupo</dt><dd>5 a 7 personas</dd></div>
+        <div><dt>Inversión</dt><dd>$7,000 + IVA</dd></div>
+        <div><dt>Incluye</dt><dd>Material y guía</dd></div>
+      </dl>
+      <p style="color:#a7a591;font-size:.76rem;margin-top:.9rem;letter-spacing:.06em">Tarifa 2024 · por confirmar 2026</p>
+    </div>
+  </div>
+</section>
+
+<section class="filo">
+  <div class="env">
+    <div class="pilares">
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 48"><use href="#sprig"/></svg>Regulación</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 44"><use href="#moon"/></svg>Autocompasión</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 48"><use href="#sprig"/></svg>Neurociencia</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 44"><use href="#moon"/></svg>Sanación</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 48"><use href="#sprig"/></svg>Relaciones sanas</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 44"><use href="#moon"/></svg>Cuerpo</span>
+      <span class="pilar"><svg class="sprig" viewBox="0 0 40 48"><use href="#sprig"/></svg>Presencia</span>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="env cta">
+    <svg class="sprig" viewBox="0 0 40 48" style="width:40px"><use href="#sprig"/></svg>
+    <span class="rotulo doble">Empezar</span>
+    <h2>Si algo de esto te resonó,<br>no fue casualidad.</h2>
+    <p>Escríbeme y platicamos sin compromiso. No hay diagnóstico ni discurso de venta: solo una conversación para ver si este es tu momento.</p>
+    <div class="acc">
+      <a class="btn" href="#">Escribirme por WhatsApp</a>
+      <a class="btn ghost" href="https://instagram.com/patygodinezcoach">@patygodinezcoach</a>
+    </div>
+    <p class="script" style="font-size:1.6rem;margin-top:1rem">¡retorna a tu poder!</p>
+  </div>
+</section>
+
+<footer>
+  <div class="env">
+    <span class="mono">[ pg ]</span>
+    <span style="font-size:.82rem;letter-spacing:.04em">Paty Godínez · Psicoterapeuta &amp; Coach · Guadalajara</span>
+    <div class="redes"><a href="https://instagram.com/patygodinezcoach">Instagram</a><a href="#">Facebook</a><a href="#contacto">Contacto</a></div>
+  </div>
+</footer>
+</body>
+</html>
