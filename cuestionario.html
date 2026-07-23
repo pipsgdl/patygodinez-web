@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cuestionario · Paty Godínez</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+  @font-face{font-family:"Bruney Season";src:url("https://cdn.jsdelivr.net/gh/pipsgdl/patygodinez-web@main/fuentes/bruney-season.woff2") format("woff2");font-display:swap}
+  @font-face{font-family:"New Icon Script";src:url("https://cdn.jsdelivr.net/gh/pipsgdl/patygodinez-web@main/fuentes/New-Icon-Script.woff2") format("woff2");font-display:swap}
+  :root{
+    --crema:#f4f0e7; --papel:#fbf9f4; --bosque:#464b37; --bosque-hondo:#2f3325;
+    --terracota:#8a4a2c; --oliva:#8d874f; --lavanda:#c9a7c8; --salvia:#7e836f;
+    --tinta:#3a3d2e; --tenue:#6d7059; --linea:#ddd6c6;
+    --display:"Bruney Season","Iowan Old Style",Didot,Georgia,serif;
+    --firma:"New Icon Script","Snell Roundhand",cursive;
+    --cuerpo:"DIN Alternate","Avenir Next","Segoe UI",-apple-system,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:var(--tinta);font-family:var(--cuerpo);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin-inline:auto;padding:0 1.2rem 5rem}
+  header.top{background:var(--bosque-hondo);color:#ece8db;text-align:center;padding:2.6rem 1.2rem 2.2rem;margin-bottom:2rem}
+  header.top .rot{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lavanda);font-weight:600}
+  header.top h1{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,6vw,2.8rem);margin:.6rem 0 .3rem;line-height:1.1}
+  header.top .firma{font-family:var(--firma);font-size:1.6rem;color:var(--lavanda)}
+  .intro{background:var(--papel);border:1px solid var(--linea);border-radius:8px;padding:1.2rem 1.3rem;font-size:.95rem;color:var(--tenue);margin-bottom:2rem}
+  .intro strong{color:var(--tinta)}
+  .grupo{margin-bottom:2.4rem}
+  .grupo h2{font-family:var(--display);font-weight:400;font-size:1.25rem;color:var(--terracota);border-bottom:1px solid var(--linea);padding-bottom:.5rem;margin:0 0 1.2rem}
+  .campo{margin-bottom:1.5rem}
+  label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.45rem;color:var(--tinta)}
+  label .n{color:var(--oliva);font-family:var(--display);margin-right:.35rem}
+  .hint{font-weight:400;font-size:.82rem;color:var(--tenue);margin-top:.15rem;display:block}
+  textarea,input[type=text]{width:100%;font-family:var(--cuerpo);font-size:16px;color:var(--tinta);background:var(--papel);border:1px solid var(--linea);border-radius:8px;padding:.7rem .8rem;resize:vertical}
+  textarea{min-height:78px}
+  textarea:focus,input:focus{outline:2px solid var(--lavanda);outline-offset:1px;border-color:var(--lavanda)}
+  .radios{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.2rem}
+  .radios label{display:inline-flex;align-items:center;gap:.4rem;font-weight:400;background:var(--papel);border:1px solid var(--linea);border-radius:99px;padding:.4rem .9rem;cursor:pointer;margin:0}
+  .barra{position:sticky;bottom:0;background:linear-gradient(transparent,var(--crema) 30%);padding:1.4rem 0 .4rem;display:flex;flex-direction:column;gap:.7rem}
+  button{font-family:var(--cuerpo);font-size:.95rem;font-weight:600;letter-spacing:.02em;border:0;border-radius:8px;padding:.95rem 1.2rem;cursor:pointer;transition:transform .15s}
+  button:active{transform:scale(.98)}
+  .wa{background:#25D366;color:#fff;font-size:1.02rem}
+  .copy{background:var(--bosque);color:#ece8db}
+  .nota{font-size:.8rem;color:var(--tenue);text-align:center}
+  #ok{display:none;background:#e7efe0;border:1px solid #b9d3a8;color:#2f5127;border-radius:8px;padding:.8rem 1rem;text-align:center;font-size:.9rem;margin-top:.4rem}
+  footer{text-align:center;font-size:.75rem;color:var(--tenue);margin-top:2rem}
+</style>
+</head>
+<body>
+<header class="top">
+  <p class="rot">La Voz del Alma</p>
+  <h1>Cuéntame de ti</h1>
+  <p class="firma">para armar tu página</p>
+</header>
+
+<div class="wrap">
+  <p class="intro">
+    Hola Paty 💚 Ya casi está tu página web. Contéstame lo que puedas de esto — <strong>no
+    tienes que llenar todo de una vez</strong>. Cuando termines, dale al botón verde y me
+    llega todo por WhatsApp. Lo que no sepas, déjalo en blanco. 🙏
+  </p>
+
+  <form id="f">
+    <div class="grupo">
+      <h2>Tú y tu formación</h2>
+      <div class="campo">
+        <label><span class="n">1</span>Tus títulos y credenciales</label>
+        <span class="hint">¿Lic. en Psicología? ¿de qué universidad y año? ¿tienes cédula? "Máster Coach" y "PNL": ¿con qué escuela y qué nivel?</span>
+        <textarea name="Credenciales"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">2</span>Tu formación en mindfulness (con Valentín Méndez)</label>
+        <span class="hint">¿Qué programa exacto y qué año? ¿te acredita como instructora o lo tomaste como alumna?</span>
+        <textarea name="Mindfulness"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">3</span>¿Desde cuándo cuentas tu experiencia?</label>
+        <span class="hint">Para poner bien los "años de trayectoria".</span>
+        <input type="text" name="Años de experiencia">
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Tus servicios y proyectos</h2>
+      <div class="campo">
+        <label><span class="n">4</span>doTERRA / aromaterapia</label>
+        <span class="hint">¿Eres distribuidora registrada? ¿tienes link de compra? ¿vendes kits, consultas o solo clases? ¿Ok hablar de bienestar sin prometer que "cura"?</span>
+        <textarea name="doTERRA"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">5</span>La palabra "terapias"</label>
+        <span class="hint">Hoy, ¿das terapia de cuerpo, psicológica, o las dos?</span>
+        <textarea name="Terapias"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">6</span>"La Voz del Alma", ¿qué es?</label>
+        <div class="radios">
+          <label><input type="radio" name="LaVozDelAlma" value="Es el nombre de TODA mi marca"> Toda mi marca</label>
+          <label><input type="radio" name="LaVozDelAlma" value="Es mi programa de cuerpo/alimentación"> Mi programa de cuerpo/comida</label>
+        </div>
+        <textarea name="LaVozDelAlma_detalle" style="margin-top:.6rem;min-height:48px" placeholder="Si quieres, explícalo con tus palabras…"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">7</span>El Re-Creo</label>
+        <span class="hint">¿Qué es, para quién, cuántas sesiones? ¿sigue activo? En la generación de 2019, ¿fuiste facilitadora o participante? ¿@re.creomiser es su cuenta?</span>
+        <textarea name="El Re-Creo"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">8</span>Con Tribu.ir</label>
+        <span class="hint">¿Cómo se escribe exactamente? El temario de "florecimiento humano" y "ventana de tolerancia", ¿es tuyo o son tus apuntes de un curso? ¿cuántas sesiones? ¿ya lo diste?</span>
+        <textarea name="Con Tribu.ir"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">9</span>"LOVE ME" (el del taller de Autoconocimiento)</label>
+        <span class="hint">¿Es otra marca, el nombre del taller, o una campaña?</span>
+        <input type="text" name="LOVE ME">
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>Tu página</h2>
+      <div class="campo">
+        <label><span class="n">10</span>¿A quién le habla tu página?</label>
+        <div class="radios">
+          <label><input type="radio" name="Publico" value="A mujeres"> A mujeres</label>
+          <label><input type="radio" name="Publico" value="A empresas"> A empresas</label>
+          <label><input type="radio" name="Publico" value="A las dos"> A las dos</label>
+        </div>
+      </div>
+      <div class="campo">
+        <label><span class="n">11</span>Precios y formato</label>
+        <span class="hint">De tus talleres y sesiones. El taller para empresas, ¿sigue en $7,000 + IVA por grupo de 5 a 7?</span>
+        <textarea name="Precios"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">12</span>Tus 6 productos del catálogo de WhatsApp</label>
+        <span class="hint">Las descripciones completas (en la app se ven cortadas), precio y si son presenciales u online.</span>
+        <textarea name="Catalogo" style="min-height:110px"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">13</span>¿Qué contacto pongo en la web?</label>
+        <span class="hint">¿Tu WhatsApp? ¿el correo psic.patygodinez@gmail.com o uno nuevo?</span>
+        <input type="text" name="Contacto">
+      </div>
+      <div class="campo">
+        <label><span class="n">14</span>Testimonios</label>
+        <span class="hint">Si puedes, pásame 3 a 5 de clientas, con su nombre y permiso para publicarlos (aquí o luego por WhatsApp).</span>
+        <textarea name="Testimonios"></textarea>
+      </div>
+      <div class="campo">
+        <label><span class="n">15</span>Fotos</label>
+        <span class="hint">De tu sesión, ¿cuáles te gustan para la página? Y si tienes las fotos de tu catálogo, mándamelas por WhatsApp.</span>
+        <textarea name="Fotos" style="min-height:48px"></textarea>
+      </div>
+      <div class="campo">
+        <label>Algo más que quieras decirme</label>
+        <textarea name="Extra" style="min-height:48px"></textarea>
+      </div>
+    </div>
+
+    <div class="barra">
+      <button type="button" class="wa" onclick="enviar()">📲 Enviar mis respuestas por WhatsApp</button>
+      <button type="button" class="copy" onclick="copiar()">Copiar todo (por si prefieres pegarlo)</button>
+      <div id="ok"></div>
+      <p class="nota">Tus respuestas NO se guardan aquí — solo se arman para que me las mandes. 💚</p>
+    </div>
+  </form>
+</div>
+
+<footer>Paty Godínez · La Voz del Alma</footer>
+
+<script>
+  var etiquetas = {
+    "Credenciales":"1. Credenciales/títulos","Mindfulness":"2. Formación mindfulness",
+    "Años de experiencia":"3. Años de experiencia","doTERRA":"4. doTERRA","Terapias":"5. Terapias",
+    "LaVozDelAlma":"6. La Voz del Alma es","LaVozDelAlma_detalle":"6b. Detalle",
+    "El Re-Creo":"7. El Re-Creo","Con Tribu.ir":"8. Con Tribu.ir","LOVE ME":"9. LOVE ME",
+    "Publico":"10. La página le habla","Precios":"11. Precios/formato","Catalogo":"12. Catálogo (6 productos)",
+    "Contacto":"13. Contacto web","Testimonios":"14. Testimonios","Fotos":"15. Fotos","Extra":"Extra"
+  };
+  function armar(){
+    var f=document.getElementById('f'), out=["Respuestas de Paty para la página 🌿",""];
+    for(var k in etiquetas){
+      var el=f.elements[k], v="";
+      if(!el){continue}
+      if(el.length && el[0] && el[0].type==="radio"){ for(var i=0;i<el.length;i++){ if(el[i].checked) v=el[i].value; } }
+      else { v=(el.value||"").trim(); }
+      if(v){ out.push("*"+etiquetas[k]+":*"); out.push(v); out.push(""); }
+    }
+    return out.join("\n");
+  }
+  function enviar(){
+    var t=armar();
+    if(t.split("\n").length<4){ msg("Aún no has contestado nada 🙂"); return; }
+    window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
+    msg("Se abrió WhatsApp — elige a Felipe y dale enviar 💚");
+  }
+  function copiar(){
+    var t=armar();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){msg("¡Copiado! Pégalo donde quieras.")}); }
+    else { msg("Selecciona y copia manualmente."); }
+  }
+  function msg(s){ var o=document.getElementById('ok'); o.textContent=s; o.style.display="block"; }
+</script>
+</body>
+</html>
