@@ -250,15 +250,41 @@
     }
     return out.join("\n");
   }
+  var SB_URL="https://qhydjksbzbhjqgaewddz.supabase.co";
+  var SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFoeWRqa3NiemJoanFnYWV3ZGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDg2NjAsImV4cCI6MjA5MTQyNDY2MH0.rRKHfu-UE86EMjHMCndhDYcX32IF7IAPXz0Xco3AuGU";
+  function payloadObj(){
+    var f=document.getElementById('f'), o={};
+    for(var k in etiquetas){
+      var el=f.elements[k], v="";
+      if(!el){continue}
+      if(el.length && el[0] && el[0].type==="radio"){ for(var i=0;i<el.length;i++){ if(el[i].checked) v=el[i].value; } }
+      else { v=(el.value||"").trim(); }
+      if(v) o[etiquetas[k]]=v;
+    }
+    return o;
+  }
+  function guardar(){
+    var o=payloadObj();
+    if(!Object.keys(o).length) return Promise.resolve(false);
+    return fetch(SB_URL+"/rest/v1/paty_respuestas",{
+      method:"POST",
+      headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},
+      body:JSON.stringify({tipo:"cuestionario",payload:o})
+    }).then(function(r){return r.ok}).catch(function(){return false});
+  }
   function enviar(){
     var t=armar();
     if(t.split("\n").length<4){ msg("Aún no has contestado nada 🙂"); return; }
-    window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
-    msg("Se abrió WhatsApp — elige a Felipe y dale enviar 💚");
+    msg("Guardando… 💾");
+    guardar().then(function(ok){
+      window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
+      msg(ok ? "¡Guardado! ✅ Y se abrió WhatsApp — elige a Felipe y envía 💚" : "Se abrió WhatsApp — elige a Felipe y envía 💚");
+    });
   }
   function copiar(){
     var t=armar();
-    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){msg("¡Copiado! Pégalo donde quieras.")}); }
+    guardar();
+    if(navigator.clipboard){ navigator.clipboard.writeText(t).then(function(){msg("¡Copiado y guardado! ✅")}); }
     else { msg("Selecciona y copia manualmente."); }
   }
   function msg(s){ var o=document.getElementById('ok'); o.textContent=s; o.style.display="block"; }

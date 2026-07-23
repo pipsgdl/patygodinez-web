@@ -101,11 +101,16 @@
     if(b.checked) orden.push(b.value); else orden=orden.filter(function(x){return x!==b.value});
     document.getElementById('c').textContent=orden.length;
   }); });
+  var SB_URL="https://qhydjksbzbhjqgaewddz.supabase.co";
+  var SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFoeWRqa3NiemJoanFnYWV3ZGR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU4NDg2NjAsImV4cCI6MjA5MTQyNDY2MH0.rRKHfu-UE86EMjHMCndhDYcX32IF7IAPXz0Xco3AuGU";
   function enviar(){
-    if(!orden.length){ o("Primero toca las fotos que te gusten 🙂"); return; }
-    var t="Elegí estas fotos para mi página 🌿\n\nPortada: foto "+orden[0]+"\nTodas: "+orden.join(", ");
-    window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
-    o("Se abrió WhatsApp — elige a Felipe y envía 💚");
+    if(!orden.length){ o("Primero toca las fotos que te gusten \ud83d\ude42"); return; }
+    var t="Elegi estas fotos para mi pagina \ud83c\udf3f\n\nPortada: foto "+orden[0]+"\nTodas: "+orden.join(", ");
+    o("Guardando\u2026 \ud83d\udcbe");
+    fetch(SB_URL+"/rest/v1/paty_respuestas",{method:"POST",headers:{"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({tipo:"fotos",payload:{portada:orden[0],todas:orden}})}).then(function(r){
+      window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
+      o(r.ok ? "\u00a1Guardado! \u2705 Y se abrio WhatsApp \ud83d\udc9a" : "Se abrio WhatsApp \u2014 elige a Felipe \ud83d\udc9a");
+    }).catch(function(){ window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank"); o("Se abrio WhatsApp \ud83d\udc9a"); });
   }
   function o(s){var e=document.getElementById('ok');e.textContent=s;e.style.display="block";}
 </script>
