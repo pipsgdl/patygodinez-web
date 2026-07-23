@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tus fotos · Paty Godínez</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<style>
+  @font-face{font-family:"Bruney Season";src:url("https://cdn.jsdelivr.net/gh/pipsgdl/patygodinez-web@main/fuentes/bruney-season.woff2") format("woff2");font-display:swap}
+  @font-face{font-family:"New Icon Script";src:url("https://cdn.jsdelivr.net/gh/pipsgdl/patygodinez-web@main/fuentes/New-Icon-Script.woff2") format("woff2");font-display:swap}
+  :root{--crema:#f4f0e7;--bosque-hondo:#2f3325;--terracota:#8a4a2c;--lavanda:#c9a7c8;--tinta:#3a3d2e;--tenue:#6d7059;--linea:#ddd6c6;
+    --display:"Bruney Season",Didot,Georgia,serif;--firma:"New Icon Script",cursive;--cuerpo:"DIN Alternate","Avenir Next",system-ui,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--crema);color:var(--tinta);font-family:var(--cuerpo);line-height:1.55}
+  header{background:var(--bosque-hondo);color:#ece8db;text-align:center;padding:2.4rem 1.2rem 2rem}
+  header .rot{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lavanda);font-weight:600}
+  header h1{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,6vw,2.6rem);margin:.5rem 0 .3rem}
+  header .firma{font-family:var(--firma);font-size:1.5rem;color:var(--lavanda)}
+  .intro{max-width:640px;margin:1.6rem auto 0;padding:0 1.2rem;color:var(--tenue);font-size:.95rem;text-align:center}
+  .grid{max-width:920px;margin:1.6rem auto 7rem;padding:0 1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem}
+  .foto{position:relative;cursor:pointer;display:block}
+  .foto img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;display:block;border:3px solid transparent;transition:border-color .15s}
+  .foto input{position:absolute;top:.5rem;left:.5rem;width:22px;height:22px;accent-color:var(--terracota);z-index:2}
+  .foto .num{position:absolute;bottom:.4rem;right:.5rem;background:rgba(47,51,37,.8);color:#fff;font-size:.72rem;padding:.1rem .45rem;border-radius:6px;font-variant-numeric:tabular-nums}
+  .foto input:checked ~ img{border-color:var(--terracota)}
+  .barra{position:fixed;bottom:0;left:0;right:0;background:rgba(244,240,231,.96);backdrop-filter:blur(8px);border-top:1px solid var(--linea);padding:.9rem 1rem;display:flex;flex-direction:column;gap:.5rem;align-items:center}
+  .cuenta{font-size:.9rem;color:var(--tenue)}
+  .cuenta b{color:var(--terracota)}
+  button{font-family:var(--cuerpo);font-weight:600;font-size:1rem;border:0;border-radius:8px;padding:.85rem 1.4rem;background:#25D366;color:#fff;cursor:pointer;width:100%;max-width:420px}
+  #ok{display:none;font-size:.85rem;color:#2f5127;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <p class="rot">La Voz del Alma</p>
+  <h1>Elige tus fotos</h1>
+  <p class="firma">para tu página</p>
+</header>
+<p class="intro">Toca las fotos que más te gusten para tu página 💚 Marca las que quieras (la primera que elijas la usamos de portada). Cuando termines, dale al botón verde y me llega tu selección por WhatsApp.</p>
+<div class="grid">
+    <label class="foto"><input type="checkbox" value="01"><img loading="lazy" src="assets/galeria/f01.jpg" alt="Foto 01"><span class="num">01</span></label>
+    <label class="foto"><input type="checkbox" value="02"><img loading="lazy" src="assets/galeria/f02.jpg" alt="Foto 02"><span class="num">02</span></label>
+    <label class="foto"><input type="checkbox" value="03"><img loading="lazy" src="assets/galeria/f03.jpg" alt="Foto 03"><span class="num">03</span></label>
+    <label class="foto"><input type="checkbox" value="04"><img loading="lazy" src="assets/galeria/f04.jpg" alt="Foto 04"><span class="num">04</span></label>
+    <label class="foto"><input type="checkbox" value="05"><img loading="lazy" src="assets/galeria/f05.jpg" alt="Foto 05"><span class="num">05</span></label>
+    <label class="foto"><input type="checkbox" value="06"><img loading="lazy" src="assets/galeria/f06.jpg" alt="Foto 06"><span class="num">06</span></label>
+    <label class="foto"><input type="checkbox" value="07"><img loading="lazy" src="assets/galeria/f07.jpg" alt="Foto 07"><span class="num">07</span></label>
+    <label class="foto"><input type="checkbox" value="08"><img loading="lazy" src="assets/galeria/f08.jpg" alt="Foto 08"><span class="num">08</span></label>
+    <label class="foto"><input type="checkbox" value="09"><img loading="lazy" src="assets/galeria/f09.jpg" alt="Foto 09"><span class="num">09</span></label>
+    <label class="foto"><input type="checkbox" value="10"><img loading="lazy" src="assets/galeria/f10.jpg" alt="Foto 10"><span class="num">10</span></label>
+    <label class="foto"><input type="checkbox" value="11"><img loading="lazy" src="assets/galeria/f11.jpg" alt="Foto 11"><span class="num">11</span></label>
+    <label class="foto"><input type="checkbox" value="12"><img loading="lazy" src="assets/galeria/f12.jpg" alt="Foto 12"><span class="num">12</span></label>
+    <label class="foto"><input type="checkbox" value="13"><img loading="lazy" src="assets/galeria/f13.jpg" alt="Foto 13"><span class="num">13</span></label>
+    <label class="foto"><input type="checkbox" value="14"><img loading="lazy" src="assets/galeria/f14.jpg" alt="Foto 14"><span class="num">14</span></label>
+    <label class="foto"><input type="checkbox" value="15"><img loading="lazy" src="assets/galeria/f15.jpg" alt="Foto 15"><span class="num">15</span></label>
+    <label class="foto"><input type="checkbox" value="16"><img loading="lazy" src="assets/galeria/f16.jpg" alt="Foto 16"><span class="num">16</span></label>
+    <label class="foto"><input type="checkbox" value="17"><img loading="lazy" src="assets/galeria/f17.jpg" alt="Foto 17"><span class="num">17</span></label>
+    <label class="foto"><input type="checkbox" value="18"><img loading="lazy" src="assets/galeria/f18.jpg" alt="Foto 18"><span class="num">18</span></label>
+    <label class="foto"><input type="checkbox" value="19"><img loading="lazy" src="assets/galeria/f19.jpg" alt="Foto 19"><span class="num">19</span></label>
+    <label class="foto"><input type="checkbox" value="20"><img loading="lazy" src="assets/galeria/f20.jpg" alt="Foto 20"><span class="num">20</span></label>
+    <label class="foto"><input type="checkbox" value="21"><img loading="lazy" src="assets/galeria/f21.jpg" alt="Foto 21"><span class="num">21</span></label>
+    <label class="foto"><input type="checkbox" value="22"><img loading="lazy" src="assets/galeria/f22.jpg" alt="Foto 22"><span class="num">22</span></label>
+    <label class="foto"><input type="checkbox" value="23"><img loading="lazy" src="assets/galeria/f23.jpg" alt="Foto 23"><span class="num">23</span></label>
+    <label class="foto"><input type="checkbox" value="24"><img loading="lazy" src="assets/galeria/f24.jpg" alt="Foto 24"><span class="num">24</span></label>
+    <label class="foto"><input type="checkbox" value="25"><img loading="lazy" src="assets/galeria/f25.jpg" alt="Foto 25"><span class="num">25</span></label>
+    <label class="foto"><input type="checkbox" value="26"><img loading="lazy" src="assets/galeria/f26.jpg" alt="Foto 26"><span class="num">26</span></label>
+    <label class="foto"><input type="checkbox" value="27"><img loading="lazy" src="assets/galeria/f27.jpg" alt="Foto 27"><span class="num">27</span></label>
+    <label class="foto"><input type="checkbox" value="28"><img loading="lazy" src="assets/galeria/f28.jpg" alt="Foto 28"><span class="num">28</span></label>
+    <label class="foto"><input type="checkbox" value="29"><img loading="lazy" src="assets/galeria/f29.jpg" alt="Foto 29"><span class="num">29</span></label>
+    <label class="foto"><input type="checkbox" value="30"><img loading="lazy" src="assets/galeria/f30.jpg" alt="Foto 30"><span class="num">30</span></label>
+    <label class="foto"><input type="checkbox" value="31"><img loading="lazy" src="assets/galeria/f31.jpg" alt="Foto 31"><span class="num">31</span></label>
+    <label class="foto"><input type="checkbox" value="32"><img loading="lazy" src="assets/galeria/f32.jpg" alt="Foto 32"><span class="num">32</span></label>
+    <label class="foto"><input type="checkbox" value="33"><img loading="lazy" src="assets/galeria/f33.jpg" alt="Foto 33"><span class="num">33</span></label>
+    <label class="foto"><input type="checkbox" value="34"><img loading="lazy" src="assets/galeria/f34.jpg" alt="Foto 34"><span class="num">34</span></label>
+    <label class="foto"><input type="checkbox" value="35"><img loading="lazy" src="assets/galeria/f35.jpg" alt="Foto 35"><span class="num">35</span></label>
+    <label class="foto"><input type="checkbox" value="36"><img loading="lazy" src="assets/galeria/f36.jpg" alt="Foto 36"><span class="num">36</span></label>
+    <label class="foto"><input type="checkbox" value="37"><img loading="lazy" src="assets/galeria/f37.jpg" alt="Foto 37"><span class="num">37</span></label>
+    <label class="foto"><input type="checkbox" value="38"><img loading="lazy" src="assets/galeria/f38.jpg" alt="Foto 38"><span class="num">38</span></label>
+    <label class="foto"><input type="checkbox" value="39"><img loading="lazy" src="assets/galeria/f39.jpg" alt="Foto 39"><span class="num">39</span></label>
+    <label class="foto"><input type="checkbox" value="40"><img loading="lazy" src="assets/galeria/f40.jpg" alt="Foto 40"><span class="num">40</span></label>
+    <label class="foto"><input type="checkbox" value="41"><img loading="lazy" src="assets/galeria/f41.jpg" alt="Foto 41"><span class="num">41</span></label>
+    <label class="foto"><input type="checkbox" value="42"><img loading="lazy" src="assets/galeria/f42.jpg" alt="Foto 42"><span class="num">42</span></label>
+    <label class="foto"><input type="checkbox" value="43"><img loading="lazy" src="assets/galeria/f43.jpg" alt="Foto 43"><span class="num">43</span></label>
+    <label class="foto"><input type="checkbox" value="44"><img loading="lazy" src="assets/galeria/f44.jpg" alt="Foto 44"><span class="num">44</span></label>
+    <label class="foto"><input type="checkbox" value="45"><img loading="lazy" src="assets/galeria/f45.jpg" alt="Foto 45"><span class="num">45</span></label>
+    <label class="foto"><input type="checkbox" value="46"><img loading="lazy" src="assets/galeria/f46.jpg" alt="Foto 46"><span class="num">46</span></label>
+    <label class="foto"><input type="checkbox" value="47"><img loading="lazy" src="assets/galeria/f47.jpg" alt="Foto 47"><span class="num">47</span></label>
+    <label class="foto"><input type="checkbox" value="48"><img loading="lazy" src="assets/galeria/f48.jpg" alt="Foto 48"><span class="num">48</span></label>
+    <label class="foto"><input type="checkbox" value="49"><img loading="lazy" src="assets/galeria/f49.jpg" alt="Foto 49"><span class="num">49</span></label>
+</div>
+<div class="barra">
+  <div class="cuenta"><b id="c">0</b> fotos elegidas</div>
+  <button onclick="enviar()">📲 Enviar mi selección por WhatsApp</button>
+  <div id="ok"></div>
+</div>
+<script>
+  var boxes=document.querySelectorAll('.foto input');
+  var orden=[];
+  boxes.forEach(function(b){ b.addEventListener('change',function(){
+    if(b.checked) orden.push(b.value); else orden=orden.filter(function(x){return x!==b.value});
+    document.getElementById('c').textContent=orden.length;
+  }); });
+  function enviar(){
+    if(!orden.length){ o("Primero toca las fotos que te gusten 🙂"); return; }
+    var t="Elegí estas fotos para mi página 🌿\n\nPortada: foto "+orden[0]+"\nTodas: "+orden.join(", ");
+    window.open("https://wa.me/?text="+encodeURIComponent(t),"_blank");
+    o("Se abrió WhatsApp — elige a Felipe y envía 💚");
+  }
+  function o(s){var e=document.getElementById('ok');e.textContent=s;e.style.display="block";}
+</script>
+</body>
+</html>
