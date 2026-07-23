@@ -149,13 +149,49 @@
         <textarea name="Testimonios"></textarea>
       </div>
       <div class="campo">
-        <label><span class="n">15</span>Fotos</label>
-        <span class="hint">De tu sesión, ¿cuáles te gustan para la página? Y si tienes las fotos de tu catálogo, mándamelas por WhatsApp.</span>
-        <textarea name="Fotos" style="min-height:48px"></textarea>
+        <label><span class="n">15</span>Tus fotos</label>
+        <span class="hint">Elige las fotos que quieras para tu página o de tu catálogo. Se mandan por WhatsApp desde tu celular.</span>
+        <input type="file" id="fotos" accept="image/*" multiple style="margin-top:.3rem">
+        <div id="prevfotos" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem"></div>
+        <button type="button" class="wa" style="margin-top:.8rem;font-size:.92rem" onclick="enviarFotos()">📷 Enviar mis fotos por WhatsApp</button>
+        <textarea name="Fotos_nota" style="min-height:44px;margin-top:.7rem" placeholder="¿Cuáles te gustan más? ¿alguna para la portada? (opcional)"></textarea>
       </div>
       <div class="campo">
         <label>Algo más que quieras decirme</label>
         <textarea name="Extra" style="min-height:48px"></textarea>
+      </div>
+    </div>
+
+    <div class="grupo">
+      <h2>✍️ Edita los textos de tu página</h2>
+      <p class="hint" style="margin:-.6rem 0 1.2rem">Estos son los textos que están hoy en tu página. Cámbialos como quieras — si te gustan como están, déjalos igual. 💚</p>
+      <div class="campo">
+        <label>Frase principal (portada)</label>
+        <textarea name="T_hero">Acompaño a mujeres que cargan con todo y en algún punto dejaron de escucharse. No para que aguantes más — para que vuelvas a ti.</textarea>
+      </div>
+      <div class="campo">
+        <label>"Quién te acompaña" (frase de entrada)</label>
+        <textarea name="T_lead">No te hablo desde la teoría. Te hablo desde el camino.</textarea>
+      </div>
+      <div class="campo">
+        <label>Tu manifiesto (la frase larga tuya)</label>
+        <textarea name="T_manifiesto" style="min-height:100px">Me siento orgullosa de mí, porque he seguido mi voz interior, porque he entrenado mi mente para sanarme, para transformar mis relaciones, para reconstruir una identidad que era de miedo, fragilidad y dolor, por amor a sí misma, aprobación y valentía. Me enorgullece poder romper con creencias morales y religiosas muy limitantes. Creo que hay mucho sufrimiento por la falta de conocimiento y perdón a uno mismo.</textarea>
+      </div>
+      <div class="campo">
+        <label>Cómo te describes</label>
+        <textarea name="T_sobre" style="min-height:90px">Soy psicoterapeuta y coach. Trabajo desde la programación neurolingüística, las neurociencias y el coaching — no como técnicas sueltas, sino como un camino para que dejes de pelearte contigo.</textarea>
+      </div>
+      <div class="campo">
+        <label>Acompañamiento individual</label>
+        <textarea name="T_individual" style="min-height:60px">Sesiones uno a uno, a tu ritmo, para desenredar lo que ya no quieres seguir cargando.</textarea>
+      </div>
+      <div class="campo">
+        <label>La Voz del Alma (descripción)</label>
+        <textarea name="T_lva" style="min-height:70px">Programa sobre tu relación con el cuerpo y con la comida: hambre real y hambre emocional, la práctica del espejo, las lealtades que heredaste.</textarea>
+      </div>
+      <div class="campo">
+        <label>Mensaje de cierre (contacto)</label>
+        <textarea name="T_cierre" style="min-height:70px">Si algo de esto te resonó, no fue casualidad. Escríbeme y platicamos sin compromiso. No hay diagnóstico ni discurso de venta: solo una conversación para ver si este es tu momento.</textarea>
       </div>
     </div>
 
@@ -177,8 +213,32 @@
     "LaVozDelAlma":"6. La Voz del Alma es","LaVozDelAlma_detalle":"6b. Detalle",
     "El Re-Creo":"7. El Re-Creo","Con Tribu.ir":"8. Con Tribu.ir","LOVE ME":"9. LOVE ME",
     "Publico":"10. La página le habla","Precios":"11. Precios/formato","Catalogo":"12. Catálogo (6 productos)",
-    "Contacto":"13. Contacto web","Testimonios":"14. Testimonios","Fotos":"15. Fotos","Extra":"Extra"
+    "Contacto":"13. Contacto web","Testimonios":"14. Testimonios","Fotos_nota":"15. Fotos (notas)","Extra":"Extra",
+    "T_hero":"TEXTO · Portada","T_lead":"TEXTO · Entrada","T_manifiesto":"TEXTO · Manifiesto",
+    "T_sobre":"TEXTO · Cómo me describo","T_individual":"TEXTO · Individual","T_lva":"TEXTO · La Voz del Alma",
+    "T_cierre":"TEXTO · Cierre/contacto"
   };
+  // Vista previa de fotos
+  document.getElementById('fotos').addEventListener('change', function(e){
+    var box=document.getElementById('prevfotos'); box.innerHTML="";
+    [].forEach.call(e.target.files, function(file){
+      var img=document.createElement('img');
+      img.src=URL.createObjectURL(file);
+      img.style.cssText="width:64px;height:64px;object-fit:cover;border-radius:6px;border:1px solid var(--linea)";
+      box.appendChild(img);
+    });
+  });
+  function enviarFotos(){
+    var files=document.getElementById('fotos').files;
+    if(!files.length){ msg("Primero elige tus fotos con el botón de arriba 📷"); return; }
+    if(navigator.canShare && navigator.canShare({files:[files[0]]})){
+      navigator.share({files:[].slice.call(files), text:"Fotos para mi página 🌿"})
+        .then(function(){msg("¡Listo! Elige a Felipe en WhatsApp.")})
+        .catch(function(){msg("Si no se abrió, mándalas directo por WhatsApp 🙏")});
+    } else {
+      msg("Desde la computadora no puedo mandarlas solas — ábrelo en tu CELULAR, o mándalas directo por WhatsApp a Felipe 🙏");
+    }
+  }
   function armar(){
     var f=document.getElementById('f'), out=["Respuestas de Paty para la página 🌿",""];
     for(var k in etiquetas){
