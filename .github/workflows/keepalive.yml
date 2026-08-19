@@ -1,0 +1,47 @@
+name: keep-alive Supabase (patygodinez-web)
+
+# Evita que el proyecto Supabase free-tier (mlixxjbteqnwjwaterwa) se auto-pause
+# por inactividad y rompa el cuestionario/galería. Hace una consulta autenticada
+# a PostgREST (query real contra la BD) cada 3 días.
+#
+# La SUPABASE_ANON_KEY es la MISMA llave pública anónima ya embebida en el sitio
+# (cuestionario.html / galeria.html): no es secreta. Aun así se lee de un secret
+# del repo para no duplicarla; si no existe el secret, usa el fallback inline.
+
+on:
+  schedule:
+    - cron: "17 15 */3 * *"   # cada 3 días, 15:17 UTC (~09:17 CST)
+  workflow_dispatch:           # permite dispararlo a mano desde la pestaña Actions
+
+# Un solo run a la vez; no cancela el anterior si llegara a solaparse.
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping Supabase REST (mantener BD activa)
+        env:
+          SB_URL: "https://mlixxjbteqnwjwaterwa.supabase.co"
+          SB_KEY: ${{ secrets.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1saXh4amJ0ZXFud2p3YXRlcndhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ4MTI2NDAsImV4cCI6MjEwMDM4ODY0MH0.deLgtZzWZm1ZxDJfi_db0XLaOVVyZNB-X1plqtL0JCE' }}
+        run: |
+          set -euo pipefail
+          echo "Ping keep-alive $(date -u +%FT%TZ) -> $SB_URL"
+          # Reintentos: si el proyecto estuviera despertando (521/503), reintenta.
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /tmp/body.txt -w "%{http_code}" --max-time 25 \
+              "$SB_URL/rest/v1/paty_respuestas?select=id&limit=1" \
+              -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY") || code="000"
+            echo "intento $i -> HTTP $code"
+            if [ "$code" = "200" ]; then
+              echo "OK: Supabase activo y respondiendo."
+              exit 0
+            fi
+            echo "aún no listo (posible arranque en frío); espero 20s…"
+            sleep 20
+          done
+          echo "FALLÓ keep-alive tras 6 intentos. Último cuerpo:"; head -c 500 /tmp/body.txt || true
+          exit 1
